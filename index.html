@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>For You ❤️</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -42,16 +42,83 @@
       color: #444;
     }
 
-    /* ❤️ Heart Animation */
-    .heart {
-      position: fixed;
-      font-size: 20px;
-      animation: floatUp 4s linear infinite;
+    /* 💖 Gallery */
+    .gallery {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 15px;
+      flex-wrap: wrap;
     }
 
-    @keyframes floatUp {
-      from { transform: translateY(100vh); opacity: 1; }
-      to { transform: translateY(-10vh); opacity: 0; }
+    .gallery img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      border: 3px solid rgba(255,255,255,0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery img:active {
+      transform: scale(1.08);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+    }
+
+    /* Buttons */
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      position: relative;
+      height: 90px;
+      align-items: center;
+    }
+
+    button {
+      padding: 12px 22px;
+      border-radius: 30px;
+      border: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    #yesBtn {
+      background: linear-gradient(45deg, #ff4b5c, #ff6b81);
+      color: white;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    #noBtn {
+      background: white;
+      border: 2px solid #ff4b5c;
+      color: #ff4b5c;
+      position: absolute;
+      left: 65%;
+      top: 25px;
+    }
+
+    #hidden {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.4rem;
+      color: white;
+    }
+
+    /* WhatsApp */
+    .whatsapp {
+      margin-top: 20px;
+      display: none;
+    }
+
+    .whatsapp a {
+      text-decoration: none;
+      background: #25D366;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 25px;
     }
 
     /* 🌹 Roses */
@@ -66,78 +133,21 @@
       to { transform: translateY(110vh) rotate(360deg); }
     }
 
+    /* ❤️ Hearts */
+    .heart {
+      position: fixed;
+      font-size: 20px;
+      animation: floatUp 4s linear infinite;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(100vh); opacity: 1; }
+      to { transform: translateY(-10vh); opacity: 0; }
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(15px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Buttons */
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      position: relative;
-      height: 90px;
-      align-items: center;
-    }
-
-    button {
-      padding: 12px 20px;
-      border-radius: 30px;
-      border: none;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    #yesBtn {
-      background: linear-gradient(45deg, #ff4b5c, #ff6b81);
-      color: white;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
-
-    #noBtn {
-      background: white;
-      border: 2px solid #ff4b5c;
-      color: #ff4b5c;
-      position: absolute;
-      left: 65%; /* start beside Yes button */
-      top: 25px;
-    }
-
-    #hidden {
-      display: none;
-      margin-top: 20px;
-      font-size: 1.4rem;
-      color: white;
-    }
-
-    /* 📸 Gallery */
-    .gallery {
-      display: flex;
-      overflow-x: auto;
-      gap: 10px;
-      padding: 10px;
-    }
-
-    .gallery img {
-      height: 150px;
-      border-radius: 15px;
-    }
-
-    /* 💬 WhatsApp Button */
-    .whatsapp {
-      margin-top: 20px;
-      display: none;
-    }
-
-    .whatsapp a {
-      text-decoration: none;
-      background: #25D366;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 25px;
-      font-size: 1rem;
     }
 
   </style>
@@ -163,6 +173,7 @@
 
     <div class="card">
       <p style="font-weight:600;">Our Memories 💭</p>
+
       <div class="gallery">
         <img src="1.jpeg">
         <img src="2.jpeg">
@@ -171,16 +182,19 @@
 
     <div class="card">
       <p style="font-weight:600;">Will you forgive me? 🥺</p>
+
       <div class="buttons">
         <button id="yesBtn" onclick="sayYes()">Yes ❤️</button>
         <button id="noBtn" ontouchstart="moveNo()" onclick="moveNo()">No 😢</button>
       </div>
     </div>
 
-    <p id="hidden">I love you so much 😭❤️ Thank you for giving me another chance 🌹</p>
+    <p id="hidden">
+      I love you so much ❤️ Thank you for giving me another chance 🌹
+    </p>
 
     <div class="whatsapp" id="whatsapp">
-      <a href="https://wa.me/" target="_blank">Talk to me ❤️</a>
+      <a href="https://wa.me/91YOURNUMBER" target="_blank">Talk to me ❤️</a>
     </div>
 
   </div>
@@ -195,16 +209,11 @@
       const btn = document.getElementById('noBtn');
       const parent = btn.parentElement;
 
-      const parentRect = parent.getBoundingClientRect();
-
       const maxX = parent.clientWidth - btn.offsetWidth;
       const maxY = parent.clientHeight - btn.offsetHeight;
 
-      const x = Math.random() * maxX;
-      const y = Math.random() * maxY;
-
-      btn.style.left = x + 'px';
-      btn.style.top = y + 'px';
+      btn.style.left = Math.random() * maxX + 'px';
+      btn.style.top = Math.random() * maxY + 'px';
     }
 
     // 🌹 Roses
@@ -227,7 +236,6 @@
       document.body.appendChild(heart);
       setTimeout(() => heart.remove(), 4000);
     }, 700);
-
   </script>
 
 </body>
