@@ -207,15 +207,17 @@
 
     function moveNo() {
       const btn = document.getElementById('noBtn');
-      const parent = btn.parentElement;
-
-      const maxX = parent.clientWidth - btn.offsetWidth;
-      const maxY = parent.clientHeight - btn.offsetHeight;
-
-      btn.style.left = Math.random() * maxX + 'px';
-      btn.style.top = Math.random() * maxY + 'px';
+    
+      const maxX = window.innerWidth - btn.offsetWidth;
+      const maxY = window.innerHeight - btn.offsetHeight;
+    
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+    
+      btn.style.position = "fixed";  // KEY CHANGE
+      btn.style.left = x + "px";
+      btn.style.top = y + "px";
     }
-
     // 🌹 Roses
     setInterval(() => {
       const rose = document.createElement('div');
