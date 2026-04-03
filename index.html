@@ -194,10 +194,12 @@
 
     function moveNo() {
       const btn = document.getElementById('noBtn');
+      const parent = btn.parentElement;
 
-      // move anywhere on screen (bigger movement)
-      const maxX = window.innerWidth - btn.offsetWidth;
-      const maxY = window.innerHeight - btn.offsetHeight;
+      const parentRect = parent.getBoundingClientRect();
+
+      const maxX = parent.clientWidth - btn.offsetWidth;
+      const maxY = parent.clientHeight - btn.offsetHeight;
 
       const x = Math.random() * maxX;
       const y = Math.random() * maxY;
